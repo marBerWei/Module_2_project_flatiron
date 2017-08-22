@@ -1,0 +1,5 @@
+<h2>when you click login it will render the</h2>
+
+<%@instructor.cohort.each do |s| %>
+<%= link_to s.name, cohort_path(s)%>
+<%end%>
