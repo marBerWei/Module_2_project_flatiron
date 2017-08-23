@@ -19,7 +19,8 @@ Student.create!(name: "Franz", cohort_id: 2, password: "2")
  
 
 Test.create!(name: "Module 2 Test", student_id: 1)
-
+Test.create!(name: "Module 2 Test", student_id: 3)
+Test.create!(name: "Module 3 Test", student_id: 2)
 
 
 CohortInstructor.create!(cohort_id: 1, instructor_id: 1)

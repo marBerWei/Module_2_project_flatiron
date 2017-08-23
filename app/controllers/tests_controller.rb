@@ -17,9 +17,11 @@ class TestsController < ApplicationController
 	end
 
 	def update
+
 		@test.update(test_params)
+
 		if @test.save
-			redirect_to test_path
+			redirect_to student_path(@test.student)
 		else 
 			render :edit
 		end
@@ -38,7 +40,7 @@ class TestsController < ApplicationController
 	private
 
 	def test_params
-		params.require(:test).permit(:name, :student_id)
+		params.require(:test).permit(:name, :student_id, :graded, :instructor_feedback)
 	end
 
 	def set_test

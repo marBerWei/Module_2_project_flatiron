@@ -2,6 +2,5 @@
 <% @instructor.cohorts.each do |c| %>
 
 
-<h1><%= link_to("#{c.name}", cohorts_path)%></h1>
-
+<h1><%= link_to("#{c.name}", cohort_path)%></h1>
 <% end %>

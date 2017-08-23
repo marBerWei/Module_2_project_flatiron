@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170822142047) do
     t.string "name"
     t.integer "student_id"
     t.text "instructor_feedback"
+    t.boolean "meeting?"
     t.string "graded", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
