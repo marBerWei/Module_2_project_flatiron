@@ -15,7 +15,6 @@ class InstructorsController < ApplicationController
 	end
 
 	def create
-		# byebug
 		@instructor = Instructor.new(instructor_params)
 		if @instructor.save
 			redirect_to instructor_path(@instructor)
