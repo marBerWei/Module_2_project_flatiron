@@ -9,8 +9,13 @@
 Instructor.create!(name: "Alex", password: "1")
 
 Cohort.create!(name: "071717")
+Cohort.create!(name: "062617")
 
-Student.create!(name: "Dean", instructor_feedback: "You did a great job on your test", cohort_id: 1, password: "2")
+Student.create!(name: "Dean", cohort_id: 1, password: "2")
+Student.create!(name: "Josh", cohort_id: 1, password: "2")
+Student.create!(name: "Gabi", cohort_id: 1, password: "2")
+Student.create!(name: "Hans", cohort_id: 2, password: "2")
+Student.create!(name: "Franz", cohort_id: 2, password: "2")
  
 
 Test.create!(name: "Module 2 Test", student_id: 1)

@@ -3,6 +3,7 @@ class CreateTests < ActiveRecord::Migration[5.1]
     create_table :tests do |t|
     	t.string :name
     	t.integer :student_id
+    	t.text :instructor_feedback
     	t.string :graded, default: 'pending'
       t.timestamps
     end

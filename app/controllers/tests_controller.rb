@@ -2,6 +2,10 @@ class TestsController < ApplicationController
 
 	before_action :set_test, only: [:show, :edit, :update, :destroy]
 
+	def index
+		@tests = Test.all
+	end
+
 	def show
 	end
 
@@ -15,7 +19,7 @@ class TestsController < ApplicationController
 	def update
 		@test.update(test_params)
 		if @test.save
-			redirect_to student_path
+			redirect_to test_path
 		else 
 			render :edit
 		end
