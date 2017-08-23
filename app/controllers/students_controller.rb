@@ -19,10 +19,11 @@ class StudentsController < ApplicationController
 	end
 
 	def create
+
 		@student = Student.new(student_params)
-		if @student.valid?
-			@student.save
-			session[:student_id] = @student.id
+
+		if @student.save
+			session[:user_id] = @student.id
 			redirect_to student_path(@student)
 		else
 			render :new

@@ -1,5 +1,7 @@
 <% @student.tests.each do |t| %>
-	<%= t.name %>
-	<%= t.graded %>
-	<%= t.instructor_feedback %>
-<% end %>
+	<h1><%= t.name %></h1>
+	<h2>Grade: </h2><%= t.graded %>
+	<h2>Feedback:</h2><%= t.instructor_feedback %>
+<% end %><br><br><br>
+
+<iframe src="https://calendar.google.com/calendar/embed?src=pbp2005%40gmail.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

@@ -15,7 +15,6 @@ class InstructorsController < ApplicationController
 	end
 
 	def create
-		# byebug
 		@instructor = Instructor.new(instructor_params)
 		if @instructor.valid?
 			@instructor.save
