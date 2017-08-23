@@ -1,10 +1,10 @@
 <h1><%= @test.name %></h1>
 <%= form_for @test do |f| %>
-<%= f.label :student %>
-<%= f.collection_select(:id, Student.all, :id, :name) %>
 <%= f.label :graded %>
 <%= f.select :graded, ['pass', 'retake', 'pending']%>
 <%= f.label :instructor_feedback %>
-<%= f.text_field :instructor_feedback %>
+<%= f.text_area :instructor_feedback %>
+<%= f.label :meeting? %>
+<%= f.select :graded, ['pass', 'retake', 'pending']%>
 <%=f.submit%>
 <% end %>

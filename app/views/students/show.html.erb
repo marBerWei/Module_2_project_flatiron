@@ -1,4 +1,5 @@
-render test index page for that student
-<% @tests.each do |t| %>
-	<%= link_to t.name, test_path(t) %>
+<% @student.tests.each do |t| %>
+	<%= t.name %>
+	<%= t.graded %>
+	<%= t.instructor_feedback %>
 <% end %>
