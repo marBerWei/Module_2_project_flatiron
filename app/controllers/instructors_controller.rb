@@ -7,6 +7,7 @@ class InstructorsController < ApplicationController
 	end
 
 	def show
+		# @students = Student.all.select { |student| student.cohort_id == @instructor.cohort_id}
 	end
 
 	def new
@@ -42,7 +43,7 @@ class InstructorsController < ApplicationController
 	private
 
 	def instructor_params
-		params.require(:instructor).permit(:name, :instructor_feedback, :cohort_id)
+		params.require(:instructor).permit(:name, :instructor_feedback, :cohort_id, :password)
 	end
 
 	def set_instructor

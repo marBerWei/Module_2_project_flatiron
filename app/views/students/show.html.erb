@@ -1,1 +1,4 @@
 render test index page for that student
+<% @tests.each do |t| %>
+	<%= link_to t.name, test_path(t) %>
+<% end %>

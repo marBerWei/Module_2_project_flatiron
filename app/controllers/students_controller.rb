@@ -7,7 +7,9 @@ class StudentsController < ApplicationController
 	end
 
 	def show
+		@tests = Test.where(student_id: session[:student_id])
 	end
+
 
 	def new
 		@student = Student.new
@@ -42,7 +44,7 @@ class StudentsController < ApplicationController
 	private
 
 	def student_params
-		params.require(:student).permit(:name, :instructor_feedback, :cohort_id)
+		params.require(:student).permit(:name, :instructor_feedback, :cohort_id, :password)
 	end
 
 	def set_student
