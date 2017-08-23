@@ -12,6 +12,15 @@ class TestsController < ApplicationController
 	def edit
 	end
 
+	def update
+		@test.update(test_params)
+		if @test.save
+			redirect_to student_path
+		else 
+			render :edit
+		end
+	end
+
 	def create
 		@test = Test.create(test_params)
 

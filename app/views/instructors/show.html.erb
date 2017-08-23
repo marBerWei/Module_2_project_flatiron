@@ -1,2 +1,5 @@
 <h1><%= @instructor.name %></h1> 
-<h1><%= link_to("#{@instructor.cohorts.first.name}", cohort_path) %></h1>
+<% @instructor.cohorts.each do |c| %>
+<h1><%= link_to("#{c.name}", cohorts_path)%></h1>
+
+<% end %>
