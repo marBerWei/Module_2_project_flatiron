@@ -1,5 +1,5 @@
 <h1><%= @test.name %></h1>
-<% form_for @test.student do |f| %>
+<%= form_for @test.student do |f| %>
 	<%= f.label :graded %>
-	<%= f.collection_select(:id, Student.all, :id, :name) %>
+	<%= f.collection_select(:id, Student.all, :id, :grade) %>
 <% end %>
