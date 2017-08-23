@@ -1,0 +1,6 @@
+<% @cohort.students.each do |s| %>
+	<h1><%= link_to s.name, student_path(s) %><br></h1>
+		<% s.tests.each do |t| %>
+		<p><%= link_to t.name, edit_test_path(t) %></p><br>
+	<%end%>
+<%end%>
