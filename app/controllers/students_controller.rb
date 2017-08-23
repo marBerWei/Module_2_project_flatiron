@@ -20,8 +20,8 @@ class StudentsController < ApplicationController
 
 	def create
 		@student = Student.new(student_params)
-		if valid?
-			@student.save
+		if @student.save
+			
 			redirect_to student_path(@student)
 		else
 			render :new

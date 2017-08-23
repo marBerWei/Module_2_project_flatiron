@@ -15,9 +15,9 @@ class InstructorsController < ApplicationController
 	end
 
 	def create
+		# byebug
 		@instructor = Instructor.new(instructor_params)
-		if valid?
-			@instructor.save
+		if @instructor.save
 			redirect_to instructor_path(@instructor)
 		else
 			render :new
@@ -43,7 +43,7 @@ class InstructorsController < ApplicationController
 	private
 
 	def instructor_params
-		params.require(:instructor).permit(:name, :instructor_feedback, :cohort_id, :password)
+		params.require(:instructor).permit(:name, :instructor_feedback, :password, cohort_ids: [])
 	end
 
 	def set_instructor

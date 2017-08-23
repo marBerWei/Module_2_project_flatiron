@@ -1,12 +1,5 @@
 class SessionsController<ApplicationController
   
-  def new_student
-    # render student sign in form
-  end
-
-  def new_instructor
-    # render instructor sign in form
-  end
 
   def create
 
@@ -29,6 +22,7 @@ class SessionsController<ApplicationController
   
   def destroy
     session.destroy
+
     redirect_to '/'
   end
 end

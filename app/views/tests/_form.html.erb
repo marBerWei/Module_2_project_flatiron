@@ -1,10 +1,15 @@
 <h1><%= @test.name %></h1>
 <%= form_for @test do |f| %>
 <%= f.label :graded %>
-<%= f.select :graded, ['pass', 'retake', 'pending']%>
+<%= f.select :graded, ['pass', 'retake', 'pending']%><br>
 <%= f.label :instructor_feedback %>
-<%= f.text_area :instructor_feedback %>
+<%= f.text_area :instructor_feedback %><br>
 <%= f.label :meeting? %>
-<%= f.select :graded, ['pass', 'retake', 'pending']%>
-<%=f.submit%>
+<label>Yes</label>
+<%= f.radio_button("meeting?", "yes") %>
+<%= f.date_select :meeting? %>
+<%= f.time_select :meeting? %>
+<label>No</label>
+<%= f.radio_button("meeting?", "no") %>
+<%= f.submit%>
 <% end %>
