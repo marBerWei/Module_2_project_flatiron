@@ -17,7 +17,9 @@ class InstructorsController < ApplicationController
 	def create
 		# byebug
 		@instructor = Instructor.new(instructor_params)
-		if @instructor.save
+		if @instructor.valid?
+			@instructor.save
+			session[:instructor_id] = @instructor.id
 			redirect_to instructor_path(@instructor)
 		else
 			render :new
@@ -30,7 +32,7 @@ class InstructorsController < ApplicationController
 	def update
 		@instructor.update(instructor_params)
 		if @instructor.save
-			redirect_to instructors_path
+			redirect_to instructor_path(@instructor)
 		else 
 			render :edit
 		end

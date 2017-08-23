@@ -20,8 +20,9 @@ class StudentsController < ApplicationController
 
 	def create
 		@student = Student.new(student_params)
-		if @student.save
-			
+		if @student.valid?
+			@student.save
+			session[:student_id] = @student.id
 			redirect_to student_path(@student)
 		else
 			render :new
@@ -34,7 +35,7 @@ class StudentsController < ApplicationController
 	def update
 		@student.update(student_params)
 		if @student.save
-			redirect_to students_path
+			redirect_to student_path(@student)
 		else 
 			render :edit
 		end

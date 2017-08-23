@@ -2,3 +2,6 @@
 <% @instructor.cohorts.each do |c| %>
 	<h1><%= link_to("#{c.name}", cohort_path(c))%></h1>
 <% end %>
+
+<%= link_to "Create a new Cohort", new_cohort_path %><br>
+<%= link_to "Edit your account", edit_instructor_path(@instructor) %>

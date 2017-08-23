@@ -4,9 +4,7 @@ class SessionsController<ApplicationController
   def create
 
     if params[:student]
-
         @student = Student.find_by(name: params[:student][:name])
-
         @student.authenticate(params[:student][:password])
         session[:student_id] = @student.id
         redirect_to student_path(@student)
@@ -16,7 +14,7 @@ class SessionsController<ApplicationController
         session[:instructor_id] = @instructor.id
         redirect_to instructor_path(@instructor)
     else
-      redirect_to login_path
+      redirect_to root_path
     end 
   end
   
