@@ -4,10 +4,11 @@ class StudentsController < ApplicationController
 
 	def index
 		@students = Student.all
+		@cohorts = Cohort.all
 	end
 
 	def show
-		@tests = Test.where(student_id: session[:student_id])
+		@student_tests = StudentTest.where(student_id: session[:student_id])
 		# if !@student(params[:id])
 		# 	flash[:message] = "You are not #{@student.name}! GTFO!"
 		# end

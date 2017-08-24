@@ -5,24 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Instructor.destroy_all
+Cohort.destroy_all
+Student.destroy_all
+Test.destroy_all
+CohortInstructor.destroy_all
 
-Instructor.create!(name: "Alex", password: "1")
 
-Cohort.create!(name: "071717")
-Cohort.create!(name: "062617")
+alex = Instructor.create(name: "Alex", password: "1")
 
-Student.create!(name: "Dean", cohort_id: 1, password: "2")
-Student.create!(name: "Josh", cohort_id: 1, password: "2")
-Student.create!(name: "Gabi", cohort_id: 1, password: "2")
-Student.create!(name: "Hans", cohort_id: 2, password: "2")
-Student.create!(name: "Franz", cohort_id: 2, password: "2")
+
+
+seven = Cohort.create(name: "071717")
+six = Cohort.create(name: "062617")
+
+Student.create(name: "Dean", cohort_id: seven.id, password: "2")
+Student.create(name: "Josh", cohort_id: seven.id, password: "2")
+Student.create(name: "Gabi", cohort_id: seven.id, password: "2")
+Student.create(name: "Hans", cohort_id: six.id, password: "2")
+Student.create(name: "Franz", cohort_id: six.id, password: "2")
  
-Test.create!(name: "Module 1 Test", student_id: 1)
-Test.create!(name: "Module 2 Test", student_id: 1)
-Test.create!(name: "Module 1 Test", student_id: 2)
-Test.create!(name: "Module 2 Test", student_id: 3)
-Test.create!(name: "Module 2 Test", student_id: 2)
-Test.create!(name: "Module 1 Test", student_id: 3)
+Test.create(name: "Module 1 Test")
+Test.create(name: "Module 2 Test")
+Test.create(name: "Module 3 Test")
+Test.create(name: "Module 4 Test")
 
 
-CohortInstructor.create!(cohort_id: 1, instructor_id: 1)
+
+CohortInstructor.create(cohort_id: seven.id, instructor_id: alex.id)

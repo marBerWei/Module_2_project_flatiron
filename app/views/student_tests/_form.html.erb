@@ -1,5 +1,9 @@
-<h1><%= @test.name %></h1>
-<%= form_for @test do |f| %>
+
+<%=@student.name%>
+<%= form_for @student_test do |f| %>
+<%= f.label :name %>
+<%= f.collection_select :test_id, Test.all, :id, :name %><br>
+<%= f.hidden_field :student_id, :value => @student.id %>
 <%= f.label :graded %>
 <%= f.select :graded, ['pass', 'retake', 'pending']%><br>
 <%= f.label :instructor_feedback %>
@@ -7,8 +11,6 @@
 <%= f.label :meeting? %>
 <label>Yes</label>
 <%= f.radio_button("meeting?", "yes") %>
-<%= f.date_select :meeting? %>
-<%= f.time_select :meeting? %>
 <label>No</label>
 <%= f.radio_button("meeting?", "no") %>
 <%= f.submit%>

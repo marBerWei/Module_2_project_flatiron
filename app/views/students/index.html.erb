@@ -1,9 +1,7 @@
-this is the login page
-
-
-
-<h2>when you click login it will render the</h2>
-
-<%@students.each do |s| %>
-<%= link_to s.name, student_path(s)%>
+<h2>Students</h2>
+<%@cohorts.each do |c| %>
+	<p><%= c.name %></p>
+	<%c.students.each do |s| %>
+		<%= link_to s.name, new_student_test_path(s)%><br>
+	<%end%>
 <%end%>

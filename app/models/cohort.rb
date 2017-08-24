@@ -2,7 +2,7 @@ class Cohort < ApplicationRecord
 	has_many :students
 	has_many :cohort_instructors
 	has_many :cohorts, through: :cohort_instructors
-	has_many :tests, through: :students
+	has_many :student_tests, through: :students
 
 	def new_student
 	end

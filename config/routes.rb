@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :instructors
   resources :students
-  resources :tests
+  resources :student_tests
   resources :cohorts
   resources :sessions
   get '/instructor_login', to: "sessions#new_instructor"
