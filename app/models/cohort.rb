@@ -8,10 +8,9 @@ class Cohort < ApplicationRecord
 	end
 
 	def new_student=(name)
-		student = Student.new(name:name, cohort_id: self.id)
-		if student.valid?
-			student.save
-			self.students << student 
-		end
+		self.students << Student.create(name:name, cohort_id: self.id)
+		# if student.valid?
+		# 	student.save
+		# end
 	end
 end

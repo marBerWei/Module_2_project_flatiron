@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :cohort_instructors
   resources :instructors
   resources :students
   resources :tests

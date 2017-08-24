@@ -3,7 +3,7 @@ class Student < ApplicationRecord
 	has_many :tests
 	has_many :instructors, through: :cohort
 
-	has_secure_password
+	has_secure_password optional: true
 
 	validates :name, presence: true
 

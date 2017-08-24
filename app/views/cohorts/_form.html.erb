@@ -1,9 +1,6 @@
 <%= form_for @cohort do |f| %>
  <%= f.label :name %>
  <%= f.text_field :name %><br>
- <label>add an existing student to this cohort</label>
- <%= f.collection_select :student_ids, Student.all, :id, :name, include_blank: true%><br>
- <label>add a new student to this cohort </label><br>
- <%= f.text_field :new_student %><br>
+
  <%= f.submit "Create Cohort"%>
 <% end %>
