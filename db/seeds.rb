@@ -17,10 +17,12 @@ Student.create!(name: "Gabi", cohort_id: 1, password: "2")
 Student.create!(name: "Hans", cohort_id: 2, password: "2")
 Student.create!(name: "Franz", cohort_id: 2, password: "2")
  
-
+Test.create!(name: "Module 1 Test", student_id: 1)
 Test.create!(name: "Module 2 Test", student_id: 1)
+Test.create!(name: "Module 1 Test", student_id: 2)
 Test.create!(name: "Module 2 Test", student_id: 3)
-Test.create!(name: "Module 3 Test", student_id: 2)
+Test.create!(name: "Module 2 Test", student_id: 2)
+Test.create!(name: "Module 1 Test", student_id: 3)
 
 
 CohortInstructor.create!(cohort_id: 1, instructor_id: 1)

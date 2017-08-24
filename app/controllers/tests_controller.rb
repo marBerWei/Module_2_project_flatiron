@@ -31,7 +31,7 @@ class TestsController < ApplicationController
 		@test = Test.create(test_params)
 
 		if @test.save
-			redirect_to test_path(@test)
+			redirect_to cohorts_path
 		else
 			render :new
 		end
