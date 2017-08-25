@@ -21,9 +21,10 @@ class StudentTestsController < ApplicationController
 
 	def create
 		@student_test = StudentTest.create(student_test_params)
+		@student = @student_test.student
 
 		if @student_test.save
-			redirect_to students_path
+			redirect_to student_path(@student)
 		else
 			redirect_to new_student_student_test_path
 		end

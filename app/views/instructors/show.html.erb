@@ -1,9 +1,11 @@
-<h1><%= @instructor.name %></h1> 
+<h1><%= @instructor.name %></h1><br>
+
+<h1> My Cohorts </h1>
 <% @instructor.cohorts.each do |c| %>
-	<h1><%= link_to("#{c.name}", instructor_cohorts_path(c))%></h1>
+	<h1><%= link_to("#{c.name}", instructor_cohort_path(c))%></h1>
 <% end %>
 
 
 <%= link_to "Create a new Cohort", new_instructor_cohort_path(@instructor.id) %><br>
 <%= link_to "Edit your account", edit_instructor_path %><br>
-<%= link_to "add a test to a student's account", students_path %>
+<%= link_to "logout", logout_path%>

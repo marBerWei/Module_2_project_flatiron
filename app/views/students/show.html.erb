@@ -1,16 +1,21 @@
-<h1><%= @student.name %></h1>
-
-
+<h1><%= @student.name.capitalize %></h1><br>
 
 <% @student.student_tests.each do |t| %>
-	<h1><%= t.test.name %></h1>
-	<h2>Grade: </h2><%= t.graded %>
-	<h2>Feedback:</h2><%= t.instructor_feedback %>
+	<h2><%= t.test.name.capitalize %></h2>
+	<h3>Grade: <%= t.graded %></h3>
+	<h3>Feedback:  <%= t.instructor_feedback %></h3><br><br>
 	<% if session[:instructor_id] %>
 	<%= link_to "Edit Test", edit_student_student_test_path(t) %>
 	<%end%>
 <% end %><br><br><br>
 
-<%= link_to "my cohort", cohort_path(@student.cohort_id) %>
+<%= link_to "my cohort", cohort_path(@student.cohort_id) %><br>
+<% if session[:student_id] %>
+<%= link_to "logout", logout_path %><br>
+<% end %>
+
+<% if session[:instructor_id] %>
+<%= link_to "add test", new_student_student_test_path(@student) %>
+<%end%>
 
 

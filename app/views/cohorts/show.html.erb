@@ -1,8 +1,16 @@
+<% if session[:instructor_id] %>
 <% @cohort.students.each do |s| %>
-	<h1><%= link_to s.name, student_path(s)%><br></h1>
+	<h1><%= link_to s.name.capitalize, student_path(s)%><br></h1>
 	<% s.student_tests.each do |t| %>
-		<li><%= link_to t.test.name, edit_student_student_test_path(t)%><br></li>	
+		<li><%= link_to t.test.name.capitalize, edit_student_student_test_path(t)%><br></li>	
 	<%end%>
+<%end%><br>
+<%= link_to "add a student", new_cohort_student_path(@cohort.id)%><br>
+<%= link_to "home", instructor_login_path%>
+
+<% else %>
+<% @cohort.students.each do |s| %>
+	<h1><%= s.name.capitalize%><br></h1>
 <%end%>
 
-<h1><%= link_to "add a student", new_cohort_student_path(@cohort.id)%></h1>
+<%end%>
