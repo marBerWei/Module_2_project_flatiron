@@ -1,0 +1,2 @@
+class CohortsInstructorController < ApplicationController
+end

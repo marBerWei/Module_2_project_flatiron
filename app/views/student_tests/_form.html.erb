@@ -1,6 +1,7 @@
 
-<%=@student.name%>
-<%= form_for @student_test do |f| %>
+Create test for <%=@student.name%>
+
+<%= form_for ([@student, @student_test]) do |f| %>
 <%= f.label :name %>
 <%= f.collection_select :test_id, Test.all, :id, :name %><br>
 <%= f.hidden_field :student_id, :value => @student.id %>

@@ -1,11 +1,16 @@
 <h1><%= @student.name %></h1>
 
 
+
 <% @student.student_tests.each do |t| %>
 	<h1><%= t.test.name %></h1>
 	<h2>Grade: </h2><%= t.graded %>
 	<h2>Feedback:</h2><%= t.instructor_feedback %>
-	<%= link_to "Edit Test", edit_student_test_path(t) %>
+	<% if session[:instructor_id] %>
+	<%= link_to "Edit Test", edit_student_student_test_path(t) %>
+	<%end%>
 <% end %><br><br><br>
 
-<%= link_to "my cohorts", cohort_path(@student.cohort_id) %>
+<%= link_to "my cohort", cohort_path(@student.cohort_id) %>
+
+

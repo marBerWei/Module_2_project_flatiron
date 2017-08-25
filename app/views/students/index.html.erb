@@ -2,6 +2,6 @@
 <%@cohorts.each do |c| %>
 	<p><%= c.name %></p>
 	<%c.students.each do |s| %>
-		<%= link_to s.name, new_student_test_path(s)%><br>
+		<%= link_to s.name, new_student_student_test_path(s)%><br>
 	<%end%>
 <%end%>

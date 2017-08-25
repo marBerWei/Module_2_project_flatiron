@@ -17,10 +17,10 @@ class StudentsController < ApplicationController
 
 	def new
 		@student = Student.new
+		@cohort_id = params[:cohort_id]
 	end
 
 	def create
-
 		@student = Student.new(student_params)
 
 		if @student.save
@@ -29,9 +29,13 @@ class StudentsController < ApplicationController
 		else
 			render :new
 		end
+
 	end
 
 	def edit
+		if session[:student_id]
+			redirect_to student_path(@student)
+		end
 	end
 
 	def update
@@ -50,7 +54,7 @@ class StudentsController < ApplicationController
 	private
 
 	def student_params
-		params.require(:student).permit(:name, :instructor_feedback, :cohort_id, :password)
+		params.require(:student).permit(:name, :cohort_id, :password)
 	end
 
 	def set_student

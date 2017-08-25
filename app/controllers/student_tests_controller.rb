@@ -11,7 +11,7 @@ class StudentTestsController < ApplicationController
 
 	def new
 		@student_test = StudentTest.new
-		@student = Student.find(params[:format])
+		@student = Student.find(params[:student_id])
 	end
 
 	def edit
@@ -25,7 +25,7 @@ class StudentTestsController < ApplicationController
 		if @student_test.save
 			redirect_to students_path
 		else
-			render :new
+			redirect_to new_student_student_test_path
 		end
 
 	end
@@ -37,9 +37,9 @@ class StudentTestsController < ApplicationController
 		@student_test.update(student_test_params)
 
 		if @student_test.save
-			redirect_to student_path(@student_test.student)
+			redirect_to student_student_path(@student_test.student)
 		else 
-			render :edit
+			render edit_student_student_test_path
 		end
 	end
 
