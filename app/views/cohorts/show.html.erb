@@ -2,8 +2,14 @@
 <% @cohort.students.each do |s| %>
 	<h1><%= link_to s.name.capitalize, student_path(s)%><br></h1>
 	<% s.student_tests.each do |t| %>
-		<li><%= link_to t.test.name.capitalize, edit_student_student_test_path(t)%><br></li>	
+		<li><%= link_to t.test.name.capitalize, edit_student_student_test_path(t)%><br></li>
 	<%end%>
+
+	<label>Change cohort?</label>
+	<%= form_for s do |f|%>
+		<%=f.collection_select :cohort_id, Cohort.all, :id, :name %>
+		<%=f.submit%>
+	<% end %>
 <%end%><br>
 <%= link_to "add a student", new_cohort_student_path(@cohort.id)%><br>
 <%= link_to "home", instructor_login_path%>

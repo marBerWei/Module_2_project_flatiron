@@ -23,6 +23,21 @@
     				<div class="item">
     					<h1>Flatiron Assessment Fun</h1>
   				  </div>
+            <div class="item">
+              <% if session[:instructor_id] || session[:student_id] %>
+                <% if session[:instructor_id] %>
+                  <p><%=link_to "home", instructor_path(session[:instructor_id])%></p>
+                <%end %>
+                <% if session[:student_id] %>
+                  <p><%=link_to "home", student_path(session[:student_id])%></p>
+                <%end %>
+              <% end %>
+            </div>
+            <div class="item">
+              <% if session[:instructor_id] || session[:student_id] %>
+                <p><%=link_to "logout", logout_path%></p>
+              <% end %>
+            </div>
 			   </div>
   		  </div>
 	     <div>

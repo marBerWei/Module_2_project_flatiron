@@ -37,9 +37,16 @@ class InstructorsController < ApplicationController
 		end
 	end
 
-	def destroy
-		@instructor.destroy
+	def remove_cohort
+
 	end
+
+	def destroy
+		CohortInstructor.find().destroy
+		flash[:success] = "Cohort deleted"
+    	redirect_to instructor_path(session[:instructor_id])
+	end
+
 
 	private
 

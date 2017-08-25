@@ -1,9 +1,20 @@
 <h1><%= @student.name.capitalize %></h1><br>
+<h2><%= @student.cohort.name.capitalize %></h2><br>
+<%= form_for @student do |f|%><br>
+		<%=f.collection_select :cohort_id, Cohort.all, :id, :name %>
+		<%= f.submit 'change cohort', :class => "ui button" %>
+	<% end %>
 
 <% @student.student_tests.each do |t| %>
 	<h2><%= t.test.name.capitalize %></h2>
 	<h3>Grade: <%= t.graded %></h3>
-	<h3>Feedback:  <%= t.instructor_feedback %></h3><br><br>
+	<h3>Feedback:  <%= t.instructor_feedback %></h3>
+	<h3>Meeting Scheduled?  <br><% if t.meeting? %>
+							<%= "Yes!" %>
+							<% else %>
+							<%= "Nope!" %>
+							<%end%></h3><br>
+
 	<% if session[:instructor_id] %>
 	<%= link_to "Edit Test", edit_student_student_test_path(t) %>
 	<%end%>
@@ -16,6 +27,7 @@
 
 <% if session[:instructor_id] %>
 <%= link_to "add test", new_student_student_test_path(@student) %>
+
 <%end%>
 
 

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :students
   end
 
+  #patch 'some route', to: "students#change_students_cohort"
+
   resources :sessions
   get '/instructor_login', to: "sessions#new_instructor"
   post '/sessions', to: "sessions#create"

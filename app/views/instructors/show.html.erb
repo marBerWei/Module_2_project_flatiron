@@ -2,7 +2,7 @@
 
 <h1> My Cohorts </h1>
 <% @instructor.cohorts.each do |c| %>
-	<h1><%= link_to("#{c.name}", instructor_cohort_path(c))%></h1>
+	<h1><%= link_to "#{c.name}", instructor_cohort_path(@instructor,c)%></h1>
 <% end %>
 
 
